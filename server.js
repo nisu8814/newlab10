@@ -24,13 +24,7 @@ var pgp = require('pg-promise')();
 **********************/
 
 
-const dbConfig = {
-	host: 'localhost',
-	port: 5432,
-	database: 'football_db',
-	user: 'postgres',
-	password: 'pwd'
-};
+const dbConfig = process.env.DATABASE_URL;
 
 var db = pgp(dbConfig);
 
@@ -289,4 +283,4 @@ app.get('/player_info/get_player', function(req, res) {
 
 });
 
-app.listen(3000);
+app.listen(process.env.PORT);
